@@ -1,0 +1,25 @@
+@startuml container
+!define LIGHTBLUE
+!includeurl https://gist.githubusercontent.com/amgs/de57560012a8a5f0e4240f392b678a40/raw/c43f948dd1f23ed1b87c6c9fc972e71493859b16/style.puml
+
+class Container {
+    -double value
+    +Container()
+    +double getValue()
+    +double setValue()
+}
+
+class ContainerManager {
+    -Container container
+    +ContainerManager(Container container)
+    +void run()
+}
+
+class Program {
+    #void main()
+}
+
+java.lang.Thread <|.. ContainerManager
+Container "1" <.. "0..*" ContainerManager
+Program "1" ..> "5" ContainerManager
+@enduml

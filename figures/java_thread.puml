@@ -1,0 +1,42 @@
+@startuml java_thread
+!define LIGHTBLUE
+!includeurl https://gist.githubusercontent.com/amgs/de57560012a8a5f0e4240f392b678a40/raw/c43f948dd1f23ed1b87c6c9fc972e71493859b16/style.puml
+
+package java.lang {
+    interface Runnable {
+        void run()
+    }
+
+    class Thread {
+        +int MAX_PRIORITY
+        +int MIN_PRIORITY
+
+        +Thread()
+        +Thead(Runnable runnable)
+
+        +void start()
+        +void run()
+        +void setPriority(int priority)
+
+        #void sleep(long milliseconds)
+    }
+
+    class Thread.ThreadState {
+    }
+
+    interface Thread.UncaughtExceptionHandler {
+    }
+
+    Thread .> Thread.ThreadState
+    Thread.UncaughtExceptionHandler <. Thread
+
+    Runnable <|.. Thread
+}
+
+package java.util {
+    class Random {
+        +double nextDouble()
+    }
+}
+
+@enduml
