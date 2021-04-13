@@ -1,3 +1,4 @@
 .idea/
 *.eps
 *.pdf
+target/
