@@ -28,7 +28,7 @@ Considere um programa que responde a pedidos `ping` do utilizador com a express�
 
 a)
 
-Implemente um programa não concorrende considerando o seguinte cliente de linha de comandos:
+Implemente um programa não concorrente considerando o seguinte cliente de linha de comandos:
 
 - `ping`: aguarda um segundo, e responde `pong`
 - `quit`: termina o programa
@@ -44,7 +44,7 @@ Considere um supermercado com três caixas de pagamento:
 
 - A caixa 1 recebe um cliente em intervalos de tempo entre 1 e 5 segundos
 - A caixa 2 recebe clientes em intervalos de tempo entre 3 e 8 segundos
-- A caixa recebe clientes em intervalos de tempo entre 2 e 7 segundos
+- A caixa 3 recebe clientes em intervalos de tempo entre 2 e 7 segundos
 
 a)
 
