@@ -26,6 +26,14 @@ public class App {
                     PingResponse pingResponse = new PingResponse();
                     pingResponse.start();
                     break;
+                case "slow":
+                    try {
+                        Thread.sleep(1000);
+                    } catch(InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("slow pong");
+                    break;
                 case "quit":
                     System.exit(0);
             }
