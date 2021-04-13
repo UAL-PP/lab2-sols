@@ -2,6 +2,19 @@ package pt.ual.pp.lab2;
 
 import java.util.Scanner;
 
+class PingResponseRunnable implements Runnable {
+    @Override
+    public void run() {
+        // Espera 1 segundo
+        try {
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("pong");
+    }
+}
+
 class PingResponse extends Thread {
     @Override
     public void run() {
@@ -23,8 +36,15 @@ public class App {
             switch(line) {
                 case "ping":
                     // Responder ao ping
+
+                    // Com Thread
                     PingResponse pingResponse = new PingResponse();
                     pingResponse.start();
+
+                    // Com Runnable
+//                    PingResponseRunnable pingResponseRunnable = new PingResponseRunnable();
+//                    Thread thread = new Thread(pingResponseRunnable);
+//                    thread.start();
                     break;
                 case "slow":
                     try {
