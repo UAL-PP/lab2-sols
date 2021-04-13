@@ -42,7 +42,7 @@ Cada pedido `ping` deve implicar a construção de uma nova *thread*.
 ### Tarefa 2
 Considere um supermercado com três caixas de pagamento:
 
-- A caixa 1 recebe um cliente em intervalos de tempo entre 1 e 5 segundos
+- A caixa 1 recebe clientes em intervalos de tempo entre 1 e 5 segundos
 - A caixa 2 recebe clientes em intervalos de tempo entre 3 e 8 segundos
 - A caixa 3 recebe clientes em intervalos de tempo entre 2 e 7 segundos
 
