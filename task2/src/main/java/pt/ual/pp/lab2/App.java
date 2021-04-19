@@ -2,7 +2,7 @@ package pt.ual.pp.lab2;
 
 import java.util.Random;
 
-class Teller {
+class Teller implements Runnable {
     private final int maximumWaitSeconds;
     private final int minimumWaitSeconds;
     private final int id;
@@ -15,15 +15,18 @@ class Teller {
         this.minimumWaitSeconds = minimumWaitSeconds;
     }
 
+    @Override
     public void run() {
-        try {
-            int numWaitSeconds = Math.min(5, random.nextInt(this.maximumWaitSeconds) + this.minimumWaitSeconds);
-            System.out.print("Teller "+this.id+" waiting for "+numWaitSeconds+" seconds... ");
-            Thread.sleep(1000 * numWaitSeconds);
-        } catch(InterruptedException e) {
-            e.printStackTrace();
+        while(true) {
+            try {
+                int numWaitSeconds = Math.min(5, random.nextInt(this.maximumWaitSeconds) + this.minimumWaitSeconds);
+                System.out.println("Teller " + this.id + " waiting for " + numWaitSeconds + " seconds... ");
+                Thread.sleep(1000 * numWaitSeconds);
+            } catch(InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Client on teller " + this.id + ".");
         }
-        System.out.println("Client on teller " + this.id + ".");
     }
 }
 
@@ -34,11 +37,8 @@ public class App {
         Teller teller2 = new Teller(2, 3, 8, random);
         Teller teller3 = new Teller(3, 2, 7, random);
 
-        while(true) {
-            //Calcular o tempo de espera para cada caixa: 1-5, 3-8, 2-7
-            teller1.run();
-            teller2.run();
-            teller3.run();
-        }
+        new Thread(teller1).start();
+        new Thread(teller2).start();
+        new Thread(teller3).start();
     }
 }
