@@ -2,7 +2,8 @@ package pt.ual.pp.lab2;
 
 import java.util.Random;
 
-class Teller implements Runnable {
+//class Teller implements Runnable {
+class Teller extends Thread {
     private final int maximumWaitSeconds;
     private final int minimumWaitSeconds;
     private final int id;
@@ -33,12 +34,16 @@ class Teller implements Runnable {
 public class App {
     public static void main(String[] args) throws InterruptedException {
         Random random = new Random();
-        Teller teller1 = new Teller(1, 1, 5, random);
-        Teller teller2 = new Teller(2, 3, 8, random);
-        Teller teller3 = new Teller(3, 2, 7, random);
+//        Teller teller1 = new Teller(1, 1, 5, random);
+//        Teller teller2 = new Teller(2, 3, 8, random);
+//        Teller teller3 = new Teller(3, 2, 7, random);
+//
+//        new Thread(teller1).start();
+//        new Thread(teller2).start();
+//        new Thread(teller3).start();
 
-        new Thread(teller1).start();
-        new Thread(teller2).start();
-        new Thread(teller3).start();
+        new Teller(1, 1, 5, random).start();
+        new Teller(2, 3, 8, random).start();
+        new Teller(3, 2, 7, random).start();
     }
 }
