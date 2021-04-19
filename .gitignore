@@ -1,5 +1,5 @@
 .idea/
 *.eps
 *.pdf
-target/
-.iml
+*/target/
+*/*.iml
