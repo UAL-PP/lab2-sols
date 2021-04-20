@@ -2,4 +2,4 @@
 *.eps
 *.pdf
 target/
-.iml
+*.iml
