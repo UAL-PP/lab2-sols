@@ -35,11 +35,14 @@ class Counter extends Thread {
 //            e.printStackTrace();
 //        }
         System.out.println(limit + " second timer done.");
+        App.globalCounter++;
     }
 }
 
 public class App {
-    public static void main(String[] args) {
+    public static int globalCounter = 0;
+
+    public static void main(String[] args) throws InterruptedException {
         final var scanner = new Scanner(System.in);
         final var counters = new ArrayList<Counter>();
 
@@ -60,8 +63,11 @@ public class App {
                     for(final var c : counters) {
                         c.start();
                     }
+                    while(globalCounter < counters.size()) {
+                        Thread.sleep(100);
+                    }
                     System.out.println("END");
-//                    System.exit(0);
+                    System.exit(0);
             }
         }
     }
